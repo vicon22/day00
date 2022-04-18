@@ -29,13 +29,14 @@ public class Main {
         sortArray(ans);
 
 
-        System.out.println("-------------------");
-        for (int i = 0; i < 10; i++) {
-            if (ans[i][1] != 0)
-                System.out.println((char) ans[i][0] + " " + ans[i][1]);
-        }
-        System.out.println("-------------------");
-        printArray(ans);
+//        System.out.println("-------------------");
+//        for (int i = 0; i < 10; i++) {
+//            if (ans[i][1] != 0)
+//                System.out.println((char) ans[i][0] + " " + ans[i][1]);
+//        }
+//        System.out.println("-------------------");
+        //printArray(ans);
+        printGraph(ans);
     }
 
     private static boolean checkInArray(char currentChar, int[][] array) {
@@ -150,6 +151,40 @@ public class Main {
                     System.out.print((char)array[f][0] + "\t");
                 else if (11 - i <= (((float)g / (float)array[0][1]) * (float)array[f][1]))
                     System.out.print("#" + "\t");
+            }
+            System.out.println();
+        }
+    }
+
+private static void printGraph(int[][] array) {
+        //System.out.println("===========");
+        int max = array[0][1];
+        byte maxHeight = (byte) (max <= 10 ? max : 10);
+        byte totalLines = (byte) (2 + maxHeight);
+        byte[] graphs = new byte[10];
+
+        for (int i = 0; i < 10; i++) {
+            if (max <= 10) {
+                graphs[i] = (byte) array[i][1];
+            } else {
+                graphs[i] = (byte) (array[i][1] * 10 / max);
+            }
+        }
+        System.out.println();
+        for (int i = 0; i < totalLines; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (array[j][0] != 0) {
+                    if (i + graphs[j] + 2 == totalLines) {
+                        System.out.printf("%3d", array[j][1]);
+                    } else if (i == totalLines - 1) {
+                        System.out.printf("%3c", array[j][0]);
+                    } else if (i + graphs[j] >= maxHeight) {
+                        System.out.printf("%3c", '#');
+                    }
+                    if (j != 10 - 1 && array[j + 1][0] != 0 && i + graphs[j + 1] >= maxHeight) {
+                        System.out.printf("%c", ' ');
+                    }
+                }
             }
             System.out.println();
         }
