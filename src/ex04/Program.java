@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASSSSSSSSSSSSSSSSSSSSSSSSDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDWEWWKFKKDKKDSKAKLSLDKSKALLLLLLLLLLRTRTETWTWWWWWWWWWWOOOOOOO42BB
-
 public class Main {
 
     public static void main(String[] args) {
@@ -27,25 +25,13 @@ public class Main {
             }
         }
         sortArray(ans);
-
-
-//        System.out.println("-------------------");
-//        for (int i = 0; i < 10; i++) {
-//            if (ans[i][1] != 0)
-//                System.out.println((char) ans[i][0] + " " + ans[i][1]);
-//        }
-//        System.out.println("-------------------");
-        //printArray(ans);
         printGraph(ans);
     }
 
     private static boolean checkInArray(char currentChar, int[][] array) {
 
-
-        //System.out.println("currentChar(checkInArray) " + currentChar);
         for (int i = 0; i < 10; i++) {
             if (currentChar == array[i][0]) {
-                //System.out.println("-+-" + i + "-+-");
                 return (false);
             }
         }
@@ -93,45 +79,6 @@ public class Main {
         }
     }
 
-//    private static void printArray(int[][] array) {
-//
-//        int min = 1000;
-//        int max = 0;
-//        int numberLetters = 0;
-//        int totalLines;
-//
-//
-//        for (int i = 0; i < 10; i++) {
-//            if (array[i][1] != 0)
-//                numberLetters++;
-//        }
-//        for (int i = 0; i < numberLetters; i++) {
-//            if (min > array[i][1])
-//                min = array[i][1];
-//            if (max < array[i][1])
-//                max = array[i][1];
-//        }
-//        System.out.println("min: " + min);
-//        System.out.println("max: " + max);
-//        System.out.println("numberLetters: " + numberLetters);
-//        totalLines = (max - min) / numberLetters;
-//        System.out.println("totalLines: " + totalLines);
-//
-//        for (int i = 12; i != 1; i -= 1) {
-//            for (int j = 0; j < 10; j++) {
-//                if (array[j][1] != 0) {
-//                    if (i == 2)
-//                        System.out.printf("%3c", array[j][0]);
-//                    else if (array[j][1] > i * totalLines)
-//                        System.out.printf("%3c", '#');
-//                    else if (array[j][1] <=  i * totalLines)
-//                        System.out.printf("%3d", array[j][1]);
-//                }
-//            }
-//            System.out.println();
-//        }
-//    }
-
     private static void printArray(int[][] array) {
         int c = 0;
         int g = 10;
@@ -157,7 +104,6 @@ public class Main {
     }
 
 private static void printGraph(int[][] array) {
-        //System.out.println("===========");
         int max = array[0][1];
         byte maxHeight = (byte) (max <= 10 ? max : 10);
         byte totalLines = (byte) (2 + maxHeight);
