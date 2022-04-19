@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 
 public class Program {
     private static final String WEEK_TEXT = "Week ";
-    private static final String TERMINATOR = "42";
+    private static final String TERMITE_NUMBER = "42";
 
     public static void main(String[] args) {
 
@@ -12,7 +12,7 @@ public class Program {
         int[] allGrades = new int[19];
         int weekNumber = 1;
         String str = scanner.nextLine();
-        while (!str.equals(TERMINATOR) && weekNumber <= 18) {
+        while (!str.equals(TERMITE_NUMBER) && weekNumber <= 18) {
             if (!str.equals(WEEK_TEXT + weekNumber)) {
                 printIllegalArgument();
             }
@@ -35,7 +35,6 @@ public class Program {
                 lesser++;
             }
         }
-
         putEquales(lesser);
     }
 

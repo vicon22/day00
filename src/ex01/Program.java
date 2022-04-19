@@ -4,25 +4,27 @@ public class Program {
 
     public static void main(String[] args) {
 
+        int MINIMAL_PRIME_NUMBER = 2;
+
         int number;
-        int i = 0;
+        int steps = 0;
         boolean isPrime = true;
 
         Scanner in = new Scanner(System.in);
         number = in.nextInt();
-        if (number < 2)
+        if (number < MINIMAL_PRIME_NUMBER)
         {
             System.out.println("Illegal Argument");
             System.exit(-1);
         }
-        for (int j = 2; j < number; j++){
+        for (int j = MINIMAL_PRIME_NUMBER; j <= number; j++){
 
-            if (number % j == 0){
+            steps++;
+            if (number % j == 0 && number != j){
                 isPrime = false;
                 break;
             }
-            i++;
         }
-        System.out.println(isPrime + " " + i);
+        System.out.println(isPrime + " " + steps);
     }
 }
